@@ -1,0 +1,39 @@
+@import '../../styles.scss';
+
+.comics-container {
+  display: flex;
+  height: calc(100vh - 100px);
+  margin-top: 10px;
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    form {
+      input {
+        width: 300px;
+      }
+      button {
+        margin-left: 10px;
+        width: 70px;
+      }
+    }
+    ul {
+      li {
+        display: flex;
+        background-color: $secondary;
+        margin: 10px;
+        height: 100px;
+        cursor: pointer;
+        img {
+          height: 100px;
+          width: 80px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .detail-container {
+    margin-top: 40px;
+  }
+
+}

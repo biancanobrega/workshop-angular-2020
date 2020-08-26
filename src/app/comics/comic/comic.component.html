@@ -1,0 +1,10 @@
+<div class="comic-container">
+  <div class="image-container">
+    <img src={{comic.image}}>
+    <div class="image-content">
+      <h1>{{comic.name}}</h1>
+      <small class="release-date">{{comic.releaseDate | date: 'MMM d, y'}}</small>
+    </div>
+  </div>
+  <p>{{comic.description}}</p>
+</div>

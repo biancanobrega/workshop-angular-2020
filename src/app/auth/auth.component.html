@@ -1,0 +1,13 @@
+<div class="auth-container">
+  <img src="../../assets/logo.png">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <span>{{errorMessage}}</span>
+
+    <input formControlName="email" type="email" placeholder="Email">
+    <span class="error" *ngIf="isFieldInvalid('email')" class="error">Email is required.</span>
+    
+    <input formControlName="pass" type="password" placeholder="Password">
+    <span class="error" *ngIf="isFieldInvalid('pass')" class="error">Password is required.</span>
+    <button type="submit">Submit</button>
+  </form>
+</div>

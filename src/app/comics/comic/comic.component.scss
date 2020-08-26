@@ -1,0 +1,19 @@
+.comic-container {
+  width: 700px;
+  .image-container {
+    display: flex;
+    img {
+      height: 300px;
+      width: 350px;
+    }
+    .image-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .release-date {
+        font-style: italic;
+      }
+    }
+  }
+}
