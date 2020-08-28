@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { TemplateModule } from './template/template.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthenticationGuard } from './auth/shared/authentication.guard';
+import { AuthenticationService } from './auth/shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -14,8 +17,9 @@ import { TemplateModule } from './template/template.module';
     BrowserModule,
     TemplateModule,
     AppRoutingModule,
+    FontAwesomeModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthenticationGuard, AuthenticationService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,0 +1,8 @@
+<form [formGroup]="comicForm" (ngSubmit)="onSubmit()">
+  <input formControlName="image" type="text" placeholder="Image url">
+  <input formControlName="name" type="name" placeholder="Name">
+  <input formControlName="releaseDate" type="date" placeholder="Release date">
+  <textarea formControlName="description" placeholder="description">
+  </textarea>
+  <button type="submit">Submit</button>
+</form>

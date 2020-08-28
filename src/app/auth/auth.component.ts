@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './shared/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +15,8 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class AuthComponent implements OnInit {
       const email = this.loginForm.get('email').value;
       const pass = this.loginForm.get('pass').value;
 
-      if (email === 'teste@teste.com' && pass === '123') {
+      if (this.authService.login(email, pass)) {
         this.router.navigateByUrl('comics');
       } else {
         this.errorMessage = 'Email and/or password is invalid(s).';

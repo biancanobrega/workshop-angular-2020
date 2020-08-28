@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './auth/shared/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'comics-app';
+  isLogged: boolean;
+
+  constructor(private readonly authService: AuthenticationService) {
+    this.authService.isLoggedIn.subscribe(isLogged => this.isLogged = isLogged);
+  }
 }

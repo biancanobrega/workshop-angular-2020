@@ -1,20 +1,24 @@
 <div class="comics-container">
   <div class="list-container">
-    <form>
-      <input type="text" name="searchValue" placeholder="Comics name" [(ngModel)]="searchValue">
-      <button (click)="onFilter()" type="submit">Search</button>
+    <form >
+      <input type="text" name="searchValue" placeholder="Comics name" [formControl]="filterControl">
     </form>
     <ul>
-      <li *ngFor="let comic of filteredComics" (click)="selectedComic = comic">
+      <li *ngFor="let comic of filteredComics$ | async">
         <img src={{comic.image}}>
         <div class="content">
-          <p>{{comic.name}}</p>
+          <p class="title" (click)="selectedComic = comic">{{comic.name}}</p>
           <p>{{comic.releaseDate | date: 'MMM d, y'}}</p>
+          <div class="icons">
+            <fa-icon [icon]="editIcon" (click)="editComic = comic"></fa-icon>
+            <fa-icon [icon]="removeIcon" (click)="onRemove(comic.id)"></fa-icon>
+          </div>
         </div>
       </li>
     </ul>
   </div>
   <div class="detail-container">
     <app-comic *ngIf="selectedComic" [comic]="selectedComic"></app-comic>
+    <app-comic-form [comic]="editComic" (changeComic)="onChangeComic()"></app-comic-form>
   </div>
 </div>

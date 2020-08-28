@@ -1,7 +1,7 @@
 export interface IComic {
+  id?: string;
   image: string;
   name: string;
   releaseDate: Date;
-  score?: number;
   description: string;
 }

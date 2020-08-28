@@ -1,9 +1,10 @@
-@import '../../styles.scss';
+@import "../../styles.scss";
 
 .comics-container {
   display: flex;
   height: calc(100vh - 100px);
   margin-top: 10px;
+  justify-content: space-around;
   .list-container {
     display: flex;
     flex-direction: column;
@@ -22,11 +23,35 @@
         background-color: $secondary;
         margin: 10px;
         height: 100px;
-        cursor: pointer;
+        border-radius: 10px;
+
         img {
           height: 100px;
           width: 80px;
           border-radius: 10px;
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          width: 100%;
+          .title {
+            cursor: pointer;
+          }
+          .icons {
+            display: flex;
+            justify-content: flex-end;
+
+            fa-icon {
+              &:hover{
+                color: $details;
+              }
+              margin-right: 10px;
+            }
+
+          }
         }
       }
     }
@@ -35,5 +60,4 @@
   .detail-container {
     margin-top: 40px;
   }
-
 }
